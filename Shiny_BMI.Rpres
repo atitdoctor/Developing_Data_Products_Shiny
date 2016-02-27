@@ -1,0 +1,62 @@
+Body Mass Index Calculator
+========================================================
+author: Atit Doctor
+date: February 26, 2016
+autosize: true
+
+Body Mass Index - Definition
+========================================================
+
+Body mass index: A key index for relating weight to height. Abbreviated BMI. BMI is a person's weight in kilograms (kg) divided by his or her height in meters squared. The National Institutes of Health (NIH) now defines normal weight, overweight, and obesity according to BMI rather than the traditional height/weight charts.
+
+BMI Categories are as follows:
+
+- Underweight = < 18.5
+- Normal weight = 18.5-24.9
+- Overweight = 25-29.9 
+- Obesity = BMI of 30 or greater
+
+
+Body Mass Index - Formula & Calculations
+========================================================
+
+The formula for calculating the BMI measure is as follows:
+
+BMI = weight(kg)/(height(m) * height(m))
+
+So, a person with weight of 85kg and height of 1.8m will have the following BMI.
+
+```{r}
+weight = 85
+height = 1.8
+BMI <- weight/height^2
+BMI
+```
+
+
+Body Mass Index - Classification
+========================================================
+
+The classification of BMI as explained in slide 2 would have in the following manner,
+
+
+```{r}
+bmi<-function(weight,height){
+  BMI_value<-weight/(height^2)
+  ifelse(BMI_value<18.5,"underweight"
+        ,ifelse(BMI_value<24.9,"normal weight"
+              , ifelse(BMI_value<30,"overweight","obesity")))
+}
+```
+```{r}
+bmi(85,1.8)
+```
+
+Body Mass Index - Conclusion
+=======================================================
+
+
+BMI is a very simple and cost efficient technique for determining body fat and getting weight status. The method being non-invasive is being used widely to determine the health status of adults worldwide.
+
+However, it is also important to note that it cannot be used uniformly throughout masses. Sex, Ethnicity, fitness play a very big role in altering the classification tiers for BMI.
+
